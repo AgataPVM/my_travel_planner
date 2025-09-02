@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
-  database: my_travel_planner_production
-  username: my_travel_planner
-  password: <%= ENV["MY_TRAVEL_PLANNER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: my_travel_planner_production
+  # username: my_travel_planner
+  # password: <%= ENV["MY_TRAVEL_PLANNER_DATABASE_PASSWORD"] %>
