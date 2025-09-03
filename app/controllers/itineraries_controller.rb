@@ -23,7 +23,7 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
-    @itinerary = Itineray.find(params[:id])
+    @itinerary = Itinerary.find(params[:id])
     @itinerary.destroy
     redirect_to itineraries_path, status: :see_other
   end
