@@ -1,10 +1,12 @@
-
+<h1 class="mt-3 text-center">Create Itinerary</h1>
 
 <%= simple_form_for @itinerary do |f|%>
-  <%= f.input :title, label: "Title"%>
-  <%= f.input :destination, as: :string, label: "Destination" %>
-  <%= f.input :days, as: :integer, label: "Number of days" %>
-  <%= f.input :people, as: :integer, label: "Number of people" %>
-  <%= f.input :interest, as: :text, label: "Interest" %>
-  <%= f.button :submit, "Create Itinerary" %>
+  <div class="container m-4 border border-dark custom-border rounded-5 p-3">
+    <%= f.input :title, label: "Title"%>
+    <%= f.input :destination, as: :string, label: "Destination" %>
+    <%= f.input :days, as: :integer, label: "Number of days" %>
+    <%= f.input :people, as: :integer, label: "Number of people" %>
+    <%= f.input :interest, as: :text, label: "Interest" %>
+    <%= f.button :submit, "Create Itinerary", class: "btn btn-primary rounded-3" %>
+  </div>
 <% end %>
