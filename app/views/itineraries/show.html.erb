@@ -1,5 +1,17 @@
-<h1><%=@itinerary.title%>
+<div class="card">
+  <div class="card-body">
+    <h1><%=@itinerary.title%></h1>
+    <p>Destination:<%=@itinerary.destination%></p>
+    <p>Number of People: <%=@itinerary.people%></p>
+    <p>Number of Days: <%=@itinerary.days%></p>
+    <p>Interests: <%=@itinerary.interest%></p>
+  </div>
+</div>
 
-
-<h2>Itinerary:</h2>
-<p><%=@itinerary.content%></p>
+<div class="card">
+  <div class="card-body">
+    <%= link_to "Delete",
+  itinerary_path(@itinerary),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
+  </div>
+</div>
