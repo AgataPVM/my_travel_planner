@@ -2,10 +2,10 @@
 
 <% @itineraries.each do |itinerary| %>
     <li>
-      <strong><%= @itinerary.title %></strong>
-      <%= @itinerary.destination %>
-      <%= @itinerary.trip_duration %> "days", <%= @itinerary.people_count %> "people"
+      <strong><%= itinerary.title %></strong>
+      <%= itinerary.destination %>
+      <%= itinerary.days %> "days", <%= itinerary.people %> "people"
 
-      <%= link_to "Show", itinerary_path(@itinerary) %>
+      <%= link_to "Show", itinerary_path(itinerary) %>
     </li>
   <% end %>
