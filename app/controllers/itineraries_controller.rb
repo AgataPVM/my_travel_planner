@@ -5,6 +5,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary = Itinerary.find(params[:id])
   end
 
   def new
@@ -16,11 +17,14 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
-
+    @itinerary = Itineray.find(params[:id])
+    @itinerary.destroy
+    redirect_to itineraries_path, status: :see_other
   end
 
   private
 
-  def
-
+  def itineraries_params
+    params.require(:itinerary).permit(:content)
+  end
 end
