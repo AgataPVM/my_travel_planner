@@ -9,10 +9,15 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-
+    @itinerary = Itinerary.new
   end
 
   def create
+    @itinerary = Itinerary.new(itineraries_params)
+    if @itinerary.save
+      redirect_to @itinerary
+    else
+      render :new, status: :unprocessable_entity
 
   end
 
