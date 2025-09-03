@@ -1,5 +1,7 @@
-<% simple_form_for: @itinerary do |form|%>
-  <% f.input :title, label: "Title"%>
-  <% f.input :content, as: :text, label: "Content" %>
-  <% f.button :submit, "Submit" %>
+
+
+<%= simple_form_for @itinerary do |f|%>
+  <%= f.input :title, label: "Title"%>
+  <%= f.input :content, as: :text, label: "Content" %>
+  <%= f.button :submit, "Submit" %>
 <% end %>
