@@ -1,5 +1,7 @@
 class ItinerariesController < ApplicationController
+
   def index
+    @itineraries = Itinerary.all
   end
 
   def show
@@ -7,9 +9,11 @@ class ItinerariesController < ApplicationController
   end
 
   def new
+
   end
 
   def create
+
   end
 
   def destroy
