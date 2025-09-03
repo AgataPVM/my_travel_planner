@@ -13,5 +13,8 @@
     <%= link_to "Delete",
   itinerary_path(@itinerary),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
+  <%= link_to "Back",
+  itineraries_path,
+  class: "btn btn-primary"%>
   </div>
 </div>
