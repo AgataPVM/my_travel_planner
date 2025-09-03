@@ -3,6 +3,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary = Itinerary.find(params[:id])
   end
 
   def new
@@ -19,8 +20,7 @@ class ItinerariesController < ApplicationController
 
   private
 
-  def itinerary_params
+  def itineraries_params
+    params.require(:itinerary).permit(:content)
   end
-
-
 end
