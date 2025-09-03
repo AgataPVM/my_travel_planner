@@ -18,7 +18,7 @@ class ItinerariesController < ApplicationController
       redirect_to @itinerary
     else
       render :new, status: :unprocessable_entity
-
+    end
   end
 
   def destroy
