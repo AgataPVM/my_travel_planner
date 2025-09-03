@@ -2,6 +2,9 @@
 
 <%= simple_form_for @itinerary do |f|%>
   <%= f.input :title, label: "Title"%>
-  <%= f.input :content, as: :text, label: "Content" %>
-  <%= f.button :submit, "Submit" %>
+  <%= f.input :destination, as: :string, label: "Destination" %>
+  <%= f.input :days, as: :integer, label: "Number of days" %>
+  <%= f.input :people, as: :integer, label: "Number of people" %>
+  <%= f.input :interest, as: :text, label: "Interest" %>
+  <%= f.button :submit, "Create Itinerary" %>
 <% end %>
