@@ -11,7 +11,7 @@
 <div class="card">
   <div class="card-body">
     <h2>Itinerary: </h2>
-    <p><%=@itinerary.content%></p>
+    <p><%= raw(render_markdown(@itinerary.content)) %></p>
     <%= link_to "Delete", itinerary_path(@itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class: "btn btn-danger"%>
     <%= link_to "Back", itineraries_path, class: "btn btn-primary"%>
   </div>
