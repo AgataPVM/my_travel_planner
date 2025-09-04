@@ -11,8 +11,31 @@
 <div class="card">
   <div class="card-body">
     <h2>Itinerary: </h2>
-    <p><%=@itinerary.content%></p>
+    <p><%= raw(render_markdown(@itinerary.content)) %></p>
     <%= link_to "Delete", itinerary_path(@itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class: "btn btn-danger"%>
     <%= link_to "Back", itineraries_path, class: "btn btn-primary"%>
   </div>
 </div>
+
+<div id="messages">
+  <% @itinerary.messages.each do |message| %>
+    <% if message.role == "user" %>
+      <div class="d-flex justify-content-end mb-2">
+        <div class="bg-white px-3 pb-0 pt-3 rounded-pill">
+          <%= raw(render_markdown(message.content)) %>
+        </div>
+      </div>
+    <% elsif message.role == "assistant" %>
+      <div class="d-flex justify-content-start mb-5">
+        <div class="px-3 pb-0 pt-3">
+          <%= raw(render_markdown(message.content)) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= simple_form_for [@itinerary, @message] do |f|%>
+  <%=f.input :content%>
+  <%=f.submit %>
+<% end %>
