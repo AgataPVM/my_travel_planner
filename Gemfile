@@ -30,6 +30,10 @@ gem "devise"
 
 gem "ruby_llm"
 
+gem "kramdown"
+gem "rouge"
+gem "kramdown-parser-gfm"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
