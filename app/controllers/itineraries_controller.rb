@@ -15,6 +15,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itineraries_params)
     @itinerary.user = current_user
+    @itinerary.content = RubyLLM.chat.ask("Criar um roteiro de viagem de  #{@itinerary.days} para #{@itinerary.destination}. Essa viagem será feita por #{@itinerary.people} pessoas que tem interesse em #{@itinerary.interest}").content
     if @itinerary.save
       redirect_to @itinerary
     else
