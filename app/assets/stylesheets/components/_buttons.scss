@@ -1,0 +1,24 @@
+.btn-primary {
+  background: $blue-700;
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: .6rem 1rem;
+  border: none;
+
+  &:hover {
+    background: $blue-900;
+  }
+}
+
+.btn-accent {
+  background: $butter;
+  color: $ink;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: .6rem 1rem;
+
+  &:hover {
+    background: lighten($butter, 5%);
+  }
+}
