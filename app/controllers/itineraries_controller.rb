@@ -5,6 +5,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @message = Message.new
   end
 
   def new
@@ -29,7 +30,7 @@ class ItinerariesController < ApplicationController
       •⁠  ⁠*Tom:* Seja um guia amigável e eficiente. Ofereça um plano equilibrado, sem sobrecarregar o dia com excesso de opções. O objetivo é um roteiro prático e agradável.
     PROMPT
 
-    
+
     @itinerary.user = current_user
     @itinerary.content = RubyLLM.chat.ask(prompt).content
     if @itinerary.save
