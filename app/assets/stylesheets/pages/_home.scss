@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+.home-hero {
+  background-image: asset-url("background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); // camada opaca
+}
+
+.home-hero .container {
+  position: relative;
+  z-index: 1;
+}
+.home-index .navbar {
+  padding-left: clamp(16px, 6vw, 80px);
+  padding-right: clamp(16px, 6vw, 80px);
+}
