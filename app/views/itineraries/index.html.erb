@@ -1,9 +1,9 @@
 <body>
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="mb-0 main-blue-text">Itineraries</h1>
+      <h1 class="mb-0 main-blue-text">Itinerários</h1>
       <!-- Botão sempre visível -->
-      <%= link_to "Create new travel itinerary",
+      <%= link_to "Criar novo itinerário",
                   new_itinerary_path,
                   class: "btn btn-primary btn-lg action-blue solid-button" %>
     </div>
@@ -21,11 +21,11 @@
                   <%end%>
                 </div>
                   <p class="card-text secondary-blue-text">
-                    <strong>Destination:</strong> <%= itinerary.destination %><br>
-                    <strong>Duration:</strong> <%= itinerary.days %> days<br>
-                    <strong>People:</strong> <%= itinerary.people %>
+                    <strong>Destino:</strong> <%= itinerary.destination %><br>
+                    <strong>Duração:</strong> <%= itinerary.days %> days<br>
+                    <strong>Número de pessoas:</strong> <%= itinerary.people %>
                   </p>
-                  <%= link_to "Show", itinerary_path(itinerary), class: "btn btn-outline-primary btn-sm outline-button" %>
+                  <%= link_to "Ver", itinerary_path(itinerary), class: "btn btn-outline-primary btn-sm outline-button" %>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
     <% else %>
 
       <div class="text-center py-5">
-        <p class="mb-4 text-muted secondary-blue-text">You don’t have any itineraries yet.</p>
+        <p class="mb-4 secondary-blue-text">Você ainda não tem nenhum itinerário.</p>
       </div>
     <% end %>
   </div>
