@@ -1,14 +1,29 @@
 class MessagesController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @message = Message.new(message_params)
-    @message.role = "user"
-    @message.itinerary = @itinerary
+    @message   = @itinerary.messages.build(message_params.merge(role: "user"))
+
     if @message.save
       build_conversation_history
-      @response = @ruby_llm_itinerary.with_instructions(instructions).ask(@message.content)
-      Message.create(role: "assistant", content: @response.content, itinerary: @itinerary)
-      redirect_to itinerary_path(@itinerary)
+      assistant_content   = @ruby_llm_itinerary.with_instructions(instructions).ask(@message.content).content
+      @assistant_message  = @itinerary.messages.create!(role: "assistant", content: assistant_content)
+
+      respond_to do |format|
+        # fluxo normal Turbo (sem redirect, sem pulo pro topo)
+        format.turbo_stream
+
+        # fallback: mesmo se o request vier como HTML, ainda respondemos com turbo stream
+        format.html do
+          render turbo_stream: [
+            turbo_stream.append("messages",
+              partial: "messages/messages",
+              locals: { messages: [@message, @assistant_message] }),
+            turbo_stream.replace("new_message",
+              partial: "messages/form",
+              locals: { itinerary: @itinerary, message: Message.new })
+          ]
+        end
+      end
     else
       render "itineraries/show", status: :unprocessable_entity
     end
@@ -20,8 +35,8 @@ class MessagesController < ApplicationController
     @ruby_llm_itinerary = RubyLLM.chat
     @itinerary.messages.each do |message|
     @ruby_llm_itinerary.add_message(role: message.role, content: message.content)
+    end
   end
-end
 
   def instructions
     "Considere esse roteiro de viagem: #{@itinerary.content}"

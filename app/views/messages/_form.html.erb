@@ -1,0 +1,6 @@
+<%= simple_form_for [itinerary, message],
+      html: { data: { turbo_preserve_scroll: true } } do |f| %>
+  <%= f.input :content, label: false,
+        input_html: { rows: 3, placeholder: "Peça ajustes no roteiro ou faça uma pergunta..." } %>
+  <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
+<% end %>
