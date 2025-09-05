@@ -16,7 +16,7 @@
               <div class="card-body white-background box-shadow">
                 <div class="division d-flex justify-content-between">
                   <h5 class="card-title main-blue-text"><strong><%= itinerary.title %></strong></h5>
-                  <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, controller: "sweetalert", action: "click->sweetalert#confirm"} do %>
                     <i class="fa-solid fa-trash blue-icon"></i>
                   <%end%>
                 </div>
