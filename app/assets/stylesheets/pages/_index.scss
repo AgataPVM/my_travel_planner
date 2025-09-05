@@ -1,2 +1,49 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+  background-color: $snow;
+}
+
+.main-blue-text, strong {
+  color: $blue-900;
+}
+
+.secondary-blue-text {
+  color: $blue-700;
+}
+
+
+.solid-button {
+  background-color: $blue-700;
+  color: $snow;
+  border-color: $blue-700;
+    &:hover{
+      background-color: $blue-400;
+      color: $snow;
+      border-color: $blue-400;
+    }
+}
+
+.outline-button {
+  background-color: white;
+  color: $blue-700;
+  border-color: $blue-700;
+    &:hover{
+      background-color: $blue-700;
+      color: $snow;
+      border-color: $blue-700;
+    }
+}
+
+.white-background {
+  background-color: white;
+}
+
+.blue-icon {
+  color: $blue-900;
+    &:hover{
+      color: #E63946;
+      font-size: 18px;
+    }
+}

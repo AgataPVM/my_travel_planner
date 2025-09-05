@@ -1,40 +1,41 @@
+<body>
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="mb-0 main-blue-text">Itinerários</h1>
+      <!-- Botão sempre visível -->
+      <%= link_to "Criar novo itinerário",
+                  new_itinerary_path,
+                  class: "btn btn-primary btn-lg action-blue solid-button" %>
+    </div>
 
-<div class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="mb-0">Itineraries</h1>
-    <!-- Botão sempre visível -->
-    <%= link_to "Create new travel itinerary",
-                new_itinerary_path,
-                class: "btn btn-primary btn-lg" %>
-  </div>
-
-  <% if @itineraries.any? %>
-    <div class="row mt-4">
-      <% @itineraries.each do |itinerary| %>
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-          <div class="card h-100">
-            <div class="card-body">
-              <div class="division d-flex justify-content-between">
-                <h5 class="card-title"><%= itinerary.title %></h5>
-                <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                  <i class="fa-solid fa-trash"></i>
-                <%end%>
+    <% if @itineraries.any? %>
+      <div class="row mt-4">
+        <% @itineraries.each do |itinerary| %>
+          <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="card h-100">
+              <div class="card-body white-background">
+                <div class="division d-flex justify-content-between">
+                  <h5 class="card-title main-blue-text"><strong><%= itinerary.title %></strong></h5>
+                  <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                    <i class="fa-solid fa-trash blue-icon"></i>
+                  <%end%>
+                </div>
+                  <p class="card-text secondary-blue-text">
+                    <strong>Destino:</strong> <%= itinerary.destination %><br>
+                    <strong>Duração:</strong> <%= itinerary.days %> days<br>
+                    <strong>Número de pessoas:</strong> <%= itinerary.people %>
+                  </p>
+                  <%= link_to "Ver", itinerary_path(itinerary), class: "btn btn-outline-primary btn-sm outline-button" %>
               </div>
-                <p class="card-text">
-                  <strong>Destination:</strong> <%= itinerary.destination %><br>
-                  <strong>Duration:</strong> <%= itinerary.days %> days<br>
-                  <strong>People:</strong> <%= itinerary.people %>
-                </p>
-                <%= link_to "Show", itinerary_path(itinerary), class: "btn btn-outline-primary btn-sm" %>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
+        <% end %>
+      </div>
+    <% else %>
 
-    <div class="text-center py-5">
-      <p class="mb-4 text-muted">You don’t have any itineraries yet.</p>
-    </div>
-  <% end %>
-</div>
+      <div class="text-center py-5">
+        <p class="mb-4 secondary-blue-text">Você ainda não tem nenhum itinerário.</p>
+      </div>
+    <% end %>
+  </div>
+</body>
