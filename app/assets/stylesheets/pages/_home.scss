@@ -29,3 +29,10 @@ body {
   @media (min-width: 1400px) { max-width: 1320px; }
 
 }
+
+.display-3{
+  color: $blue-900;
+  text-shadow: 1px 1px 2px $blue-700;
+  font: Livvic, sans-serif;
+  font-size: 7rem;
+}
