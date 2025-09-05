@@ -7,6 +7,7 @@ body {
 
 .main-blue-text, strong {
   color: $blue-900;
+  border-color: $blue-900 !important;
 }
 
 .secondary-blue-text {
