@@ -14,13 +14,18 @@
         <div class="col-12 col-md-6 col-lg-4 mb-3">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title"><%= itinerary.title %></h5>
-              <p class="card-text">
-                <strong>Destination:</strong> <%= itinerary.destination %><br>
-                <strong>Duration:</strong> <%= itinerary.days %> days<br>
-                <strong>People:</strong> <%= itinerary.people %>
-              </p>
-              <%= link_to "Show", itinerary_path(itinerary), class: "btn btn-outline-primary btn-sm" %>
+              <div class="division d-flex justify-content-between">
+                <h5 class="card-title"><%= itinerary.title %></h5>
+                <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-solid fa-trash"></i>
+                <%end%>
+              </div>
+                <p class="card-text">
+                  <strong>Destination:</strong> <%= itinerary.destination %><br>
+                  <strong>Duration:</strong> <%= itinerary.days %> days<br>
+                  <strong>People:</strong> <%= itinerary.people %>
+                </p>
+                <%= link_to "Show", itinerary_path(itinerary), class: "btn btn-outline-primary btn-sm" %>
             </div>
           </div>
         </div>
@@ -33,4 +38,3 @@
     </div>
   <% end %>
 </div>
-
