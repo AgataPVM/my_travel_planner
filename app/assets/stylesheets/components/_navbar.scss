@@ -1,10 +1,10 @@
-.navbar-lewagon {
+.navbar .container-fluid {
   justify-content: space-between;
   background: white;
-  width: 88%;
+  width: 100%;
   margin: 0 auto;         /* centraliza */
-  padding-left: 1rem;     /* respiro lateral (gutters) */
-  padding-right: 1rem;
+  padding-left: clamp(16px, 6vw, 80px);
+  padding-right: clamp(16px, 6vw, 80px);
   @media (min-width: 576px)  { .navbar-lewagon .container-fluid { max-width: 540px;  } }
   @media (min-width: 768px)  { .navbar-lewagon .container-fluid { max-width: 720px;  } }
   @media (min-width: 992px)  { .navbar-lewagon .container-fluid { max-width: 960px;  } }
