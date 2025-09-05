@@ -3,3 +3,8 @@ module ApplicationHelper
     Kramdown::Document.new(text, input: 'GFM', syntax_highlighter: "rouge").to_html
   end
 end
+module ApplicationHelper
+  def usuario_logado?
+    user_signed_in?
+  end
+end
