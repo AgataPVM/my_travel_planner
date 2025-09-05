@@ -1,0 +1,9 @@
+$user-pill-bg: #FFF9AF;
+$user-pill-border: shade-color($user-pill-bg, 15%);
+$user-pill-text: color-contrast($user-pill-bg);
+
+.message-wrapper.user .pill {
+  background: $user-pill-bg;
+  color: $user-pill-text;
+  border: 1px solid $user-pill-border;
+}

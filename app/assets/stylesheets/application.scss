@@ -5,9 +5,12 @@
 
 // External libraries
 @import "bootstrap";
+@import "components/messages";
+@import "components/generated";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/registration";
+@import "pages/new";
