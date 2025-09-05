@@ -1,12 +1,13 @@
-.navbar-lewagon {
+.navbar .container-fluid {
   justify-content: space-between;
   background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 100%;
+  margin: 0 auto;         /* centraliza */
+  padding-left: clamp(16px, 6vw, 80px);
+  padding-right: clamp(16px, 6vw, 80px);
+  @media (min-width: 576px)  { .navbar-lewagon .container-fluid { max-width: 540px;  } }
+  @media (min-width: 768px)  { .navbar-lewagon .container-fluid { max-width: 720px;  } }
+  @media (min-width: 992px)  { .navbar-lewagon .container-fluid { max-width: 960px;  } }
+  @media (min-width: 1200px) { .navbar-lewagon .container-fluid { max-width: 1140px; } }
+  @media (min-width: 1400px) { .navbar-lewagon .container-fluid { max-width: 1320px; } }
 }

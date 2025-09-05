@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+body {
+  background-color: #fff; // fundo branco em todas as páginas
+}
+
+.home-picture {
+  background-image: asset-url("background.png");
+  background-size: cover;       // cobre a largura toda
+  background-position: right top; // encosta no avatar
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.picture-bg {
+  width: 100%;
+  margin: 0 auto;
+  padding: 6rem 0 4rem;
+
+  /* mesmas larguras do .container do Bootstrap */
+  @media (min-width: 576px)  { max-width: 540px;  }
+  @media (min-width: 768px)  { max-width: 720px;  }
+  @media (min-width: 992px)  { max-width: 960px;  }
+  @media (min-width: 1200px) { max-width: 1140px; }
+  @media (min-width: 1400px) { max-width: 1320px; }
+
+}
