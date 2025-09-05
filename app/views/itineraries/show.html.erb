@@ -28,26 +28,32 @@
   </div>
 
   <div class="mb-3">
-    <h3 class="card-title my-3 text-primary fw-bold">Pergunte ao assistente</h3>
-    <div id="messages" class="d-flex flex-column gap-2">
-      <% @itinerary.messages.each do |message| %>
-        <% if message.role == "user" %>
-          <div class="d-flex justify-content-end">
-            <div class="bg-white px-3 py-2 rounded-pill shadow-sm">
-              <%= raw(render_markdown(message.content)) %>
-            </div>
-          </div>
-        <% else %>
-          <div class="d-flex justify-content-start">
-            <div class="px-3 py-2 rounded-3">
-              <%= raw(render_markdown(message.content)) %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <h3 class="card-title my-3 text-primary fw-bold">Pergunte ao assistente</h3>
 
+  <div id="messages" class="d-flex flex-column gap-2">
+    <% @itinerary.messages.order(:created_at).each_slice(2) do |pair| %>
+      <div class="turn">
+        <% pair.each do |message| %>
+          <% if message.role == "user" %>
+            <div class="d-flex justify-content-end">
+              <div class="d-inline-block bg-light border border-dark rounded-pill px-3 py-2 text-dark text-break">
+                <%= raw(render_markdown(message.content)) %>
+              </div>
+            </div>
+          <% else %>
+            <div class="my-1">
+              <div class="card border-dark bg-white rounded-4 w-100">
+                <div class="card-body p-3 text-dark text-break">
+                  <%= raw(render_markdown(message.content)) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
   <div id="new_message">
   <%= simple_form_for [@itinerary, @message],
         html: { data: { turbo_preserve_scroll: true } } do |f| %>
