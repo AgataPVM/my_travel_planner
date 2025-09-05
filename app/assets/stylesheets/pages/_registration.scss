@@ -1,0 +1,35 @@
+@import "home";
+
+.border-registration{
+  border-color: $blue-900 !important;
+}
+
+.links {
+  color: $blue-400;
+  font-weight: bold;
+    &:hover{
+      font-size: 18px;
+      transition: 0.6s;
+    }
+}
+
+.remember-me {
+  color: $blue-900 !important;
+}
+
+.h2-registration {
+  font-family: $body-font-project;
+  color: $blue-900;
+}
+
+.solid-button {
+  background-color: $blue-700;
+  color: $snow;
+  border-color: $blue-700;
+    &:hover{
+      background-color: $blue-400;
+      color: $snow;
+      border-color: $blue-400;
+      transition: 0.8s;
+    }
+}
