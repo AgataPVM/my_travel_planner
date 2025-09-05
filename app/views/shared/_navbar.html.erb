@@ -1,42 +1,58 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container">
-    <%= link_to root_path, class: "navbar-brand" do %>
-
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <%= image_tag "logo1.png", alt: "Itinero logo", height: 40 %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-  <% if usuario_logado? %>
-    <li class="nav-item me-4">
-      <%= link_to "Página inicial", root_path, class: "nav-link" %>
-    </li>
+        <% if usuario_logado? %>
+          <li class="nav-item me-4">
+            <%= link_to "Página inicial", root_path, class: "nav-link" %>
+          </li>
 
-    <li class="nav-item">
-      <%= link_to "Meus itinerários", itineraries_path, class: "nav-link" %>
-    </li>
+          <li class="nav-item">
+            <%= link_to "Meus itinerários", itineraries_path, class: "nav-link" %>
+          </li>
 
-    <li class="nav-item dropdown">
-      <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag :"avatar.jpg", class: "avatar", alt: "dropdown menu" %>
-      </a>
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <h6 class="dropdown-header"> Olá,<br><strong><%= current_user&.email %></strong></h6>
-        <%= link_to "Meu perfil", edit_user_registration_path, class: "dropdown-item" %>
-        <%= link_to "Meus itinerários", itineraries_path, class: "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item text-danger" %>
-      </div>
-    </li>
-  <% else %>
-    <li class="nav-item">
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-    </li>
-  <% end %>
-</ul>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link p-0" id="navbarDropdown" role="button"
+               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "avatar.jpg", class: "avatar", alt: "dropdown menu" %>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <h6 class="dropdown-header">
+                Olá,<br>
+                <strong><%= current_user&.email %></strong>
+              </h6>
+
+              <%= link_to "Meu perfil", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Meus itinerários", itineraries_path, class: "dropdown-item" %>
+
+              <div class="dropdown-divider"></div>
+
+              <%= link_to destroy_user_session_path,
+                          data: { turbo_method: :delete },
+                          class: "dropdown-item text-danger d-flex align-items-center gap-2" do %>
+                <i class="bi bi-door-closed"></i>
+                <span>Sair</span>
+              <% end %>
+            </div> <!-- FECHA a dropdown-menu -->
+
+          </li> <!-- FECHA o li.dropdown -->
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

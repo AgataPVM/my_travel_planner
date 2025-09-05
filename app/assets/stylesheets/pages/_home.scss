@@ -1,38 +1,53 @@
 // Specific CSS for your home-page
-body {
-  background-color: #fff; // fundo branco em todas as páginas
-}
+/* Fundo branco do site */
+body { background-color: #fff; }
 
 .home-picture {
-  background-image: asset-url("background.png");
-  background-size: cover;       // cobre a largura toda
-  background-position: right top; // encosta no avatar
+  background-image: image-url("background.png");
+  background-size: cover;
+  background-position: center top;
   background-repeat: no-repeat;
 
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
+/* largura */
 .picture-bg {
   width: 100%;
-  margin: 0 auto;
-  padding: 6rem 0 4rem;
-
-  /* mesmas larguras do .container do Bootstrap */
-  @media (min-width: 576px)  { max-width: 540px;  }
-  @media (min-width: 768px)  { max-width: 720px;  }
-  @media (min-width: 992px)  { max-width: 960px;  }
-  @media (min-width: 1200px) { max-width: 1140px; }
-  @media (min-width: 1400px) { max-width: 1320px; }
-
+  padding: 6rem 0;
 }
 
-.display-3{
-  color: $blue-900;
-  text-shadow: 1px 1px 2px $blue-700;
-  font: Livvic, sans-serif;
-  font-size: 7rem;
+/* TIPOGRAFIA */
+.home-picture h1,
+.home-picture p {
+  color: #154D71; //
+}
+
+.home-picture h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.home-picture p {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.5;
+}
+
+/* BOTÃO */
+.home-picture .btn {
+  background: $blue-700;
+  border: none;
+  color: #fff;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  padding: 0.6rem 1.6rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $blue-900;  // ✅ agora usa a variável da sua paleta
+    color: #fff;
+  }
 }
