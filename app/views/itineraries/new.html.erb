@@ -1,12 +1,12 @@
-<h1 class="mt-3 text-center">Create Itinerary</h1>
+<h1 class="mt-3 text-center main-blue-text">Criar Itinerário ✈️</h1>
 
 <%= simple_form_for @itinerary do |f|%>
-  <div class="container m-4 border border-dark custom-border rounded-5 p-3">
-    <%= f.input :title, label: "Title"%>
-    <%= f.input :destination, as: :string, label: "Destination" %>
-    <%= f.input :days, as: :integer, label: "Number of days" %>
-    <%= f.input :people, as: :integer, label: "Number of people" %>
-    <%= f.input :interest, as: :text, label: "Interest" %>
-    <%= f.button :submit, "Create Itinerary", class: "btn btn-primary rounded-3" %>
+  <div class="container m-4 shadow main-blue-text border-dark custom-border rounded-5 p-3">
+    <%= f.input :title, label: "Título", placeholder: "Ex.: Férias em família no Japão", class: "input"%>
+    <%= f.input :destination, as: :string, label: "Destino", placeholder: "Ex.: Kyoto, Japão" %>
+    <%= f.input :days, as: :integer, label: "Número de dias" %>
+    <%= f.input :people, as: :integer, label: "Número de pessoas" %>
+    <%= f.input :interest, as: :text, label: "Interesses" %>
+    <%= f.button :submit, "Criar Itinerário", class: "btn btn-primary rounded-5 solid-button" %>
   </div>
 <% end %>
