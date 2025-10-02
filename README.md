@@ -25,6 +25,7 @@ Projeto colaborativo realizado no bootcamp Le Wagon (2025).
 
 ## 📸 Prints
 
-![Página inicial](https://link-da-sua-imagem.png)
-![Dashboard](https://link-da-outra-imagem.png)
+## 📸 Prints
+
+![Tela de criação de itinerário](Captura%20de%20Tela%202025-10-02%20às%2011.12.42.png)
 
